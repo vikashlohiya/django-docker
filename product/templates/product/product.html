@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+{% extends 'base.html' %}
+
+{% block title %}App Template{% endblock title %}
+
+
+{% block content %}     
+{% load static %}
+<div class="container mt-5 ">
+    <h1 class="">Add Product</h1>
+       
+  {% if error %}
+   <div class="alert alert-danger">
+      <ul>
+          {% for er in error %}
+             <li>{{ er }}</li>
+          {% endfor %}
+      </ul>    
+   </div>    
+  {% endif %}
+    <div class="row" >
+        <form class="col-md-6" method="post" action="/product/" enctype="multipart/form-data" >
+                {% csrf_token %}
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Name</label>
+    <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
+    
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Desc</label>
+    <input type="text" name="desc" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Desc">
+    
+  </div>
+                   <div class="form-group">
+    <label for="exampleInputEmail1">Price</label>
+    <input name="price" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Price">
+    
+  </div>
+         <input type="file" name="image">        
+  <button type="submit" class="btn btn-primary ">Submit</button>
+</form>
+      </div> 
+    </div>
+            
+    </body>
+</html>
+{% endblock %} 

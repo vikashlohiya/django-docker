@@ -1,0 +1,133 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>{% block title %}--{% endblock title %}</title>
+     <link rel="stylesheet" type="text/css" href="{% static '/demo.css' %}">
+  </head>
+  <body>
+   
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+          
+       
+        <script type="text/javascript">
+        console.log("Welcome to Programiz!");
+
+
+Array.prototype.myPop=function(c) {
+           var t=[];
+           console.log(this);
+           for (let i=0; i<this.length;i++){
+               t.push(c(this[i],i,this))
+           }
+           return t;
+        }
+Array.prototype.add=function() {
+            var t=[];
+           for (let i=0; i<this.length;i++){
+               t.push(3*this[i])
+           }
+           return t;
+        }
+        
+        var aa=[1,2,3,4];
+        
+     var yy=   aa.add();
+     var jsfun={
+         
+         uname:"vikash",
+         showName:function(){
+             console.log("name",this)
+         },
+         
+          showNAmeOther:()=>{
+              nameOther:"hi",
+              console.log("name1",this.nameOther)
+         },
+     }
+    // console.log("this",jsfun.showNAmeOther());
+     
+     function addMyNo(a,b){
+       return  new Promise((resolve,reject)=>{
+         if(false){
+            resolve(a+b);
+         }else{
+             reject("Fail")
+         }
+     });
+     }
+   
+    
+     addMyNo(4,5).then((res)=>{
+         console.log(res)
+     }).catch ((err)=>{
+           console.log(err)
+     });
+
+        </script> 
+<style>
+    .bg-nav-background{
+        background: blueviolet;
+    }
+    </style>
+<nav class="navbar navbar-expand-lg navbar-dark  bg-nav-background">
+  <a class="navbar-brand" href="#">Vikash</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+     
+      
+          <li class="nav-item"><a class="nav-link" href="/product">Add Product</a></li>
+          <li class="nav-item"><a class="nav-link" href="/product/shop">Shop</a></li>
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown link
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Action</a>
+          
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+     
+      {% if user.is_authenticated %}
+      <li class="nav-item ">
+        <a class="nav-link" href="javascript:void0);">Hi  {{ user.username }}</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/product/logout">Logout</a>
+      </li>
+     {% else %}
+      <li class="nav-item ">
+        <a class="nav-link" href="/product/register">Register <span class="sr-only">(current)</span></a>
+      </li>
+     <li class="nav-item ">
+        <a class="nav-link" href="/product/login">Login</a>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+    <!-- User is not logged in -->
+    <!-- Display content for non-logged-in users -->
+     {% endif %}
+    </ul>
+  </div>
+</nav>
+{% block content %}
+
+{% endblock %}

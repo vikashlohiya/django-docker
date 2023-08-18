@@ -1,0 +1,21 @@
+# Environment and deployment-related files
+*.env
+*.log
+*.conf
+*.ini
+*.pid
+*.sock
+
+# Virtual environment
+myenv/
+.virtualenv/
+*.pyc
+
+# IDE-specific files
+.idea/
+.vscode/
+
+# Compiled Python files
+__pycache__/
+*.pyc
+*.pyo

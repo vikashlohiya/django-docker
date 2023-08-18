@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  web:
+    image: python:3.9
+    container_name: my-django-app
+    command: >
+      sh -c "pip install -r requirements.txt && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DEBUG: 'True'  # Set DEBUG to 'False' in production
+      DJANGO_SECRET_KEY: 'your-secret-key'
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_DATABASE: python
+      DB_USERNAME: root
+      DB_PASSWORD: 123456
+
+  db:
+    image: postgres:13
+    container_name: my-postgres-db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: python
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: 123456
+
+volumes:
+  postgres_data:

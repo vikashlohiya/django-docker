@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+{% extends 'base.html' %}
+{% block content %}     
+{% load static %}
+        <div class="register-left">
+            <img src="{% static 'img/reg.jpg' %}">
+        </div>
+        <div class="register">
+            <div class="register-child">
+                <div class="reg-label">Product add</div>
+                <form name="login_form" class="login_form" autocomplete="off">
+               <div class="row">
+              <label>Name</label>  <input type="text" value="" name="name"><br>
+              </div>
+              <div class="row">
+              <label>Price</label>  <input type="text" value="" name="price"><br>
+              </div>
+                 
+              <div class="row">
+                  <input type="submit" value="Save">
+              </div>
+            </form>
+        </div>
+            </div>
+            
+    </body>
+</html>
+{% endblock %} 

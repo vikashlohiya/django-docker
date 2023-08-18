@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+{% extends 'base.html' %}
+
+{% block title %}App Template{% endblock title %}
+
+
+{% block content %}     
+{% load static %}
+<div class="container mt-5">
+    <h1>Shop</h1>
+     <div class="row">
+   <form class="form-inline">
+  
+  
+  <div class="input-group mb-2 mr-sm-2">
+    
+    <input type="text"  name="search_query" value="{{ search_query }}" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Search here">
+  </div>
+
+  
+
+  <button type="submit" class="btn btn-primary mb-2">Submit</button>
+</form>
+        </div>
+        
+    <div class="row">
+         {% for object in product %}
+        <div class="card  mb-5" style="width: 18rem;">
+ 
+        <div class="card-body">
+          <h5 class="card-title">{{ object.name }}</h5>
+          <p class="card-text">{{ object.price }}</p>
+          <a href="#" class="btn btn-primary">Add to card</a>
+        </div>
+</div>
+        {% endfor %}
+        </div>
+    <div class="row">
+    <div class="pagination mt-5 pt-5">
+    {% if product.has_previous %}
+        <a href="?page={{ product.previous_page_number }}&search_query={{ search_query }}">previous</a>
+    {% endif %}
+    <span class="current-page">{{ product.number }}</span>
+    {% if product.has_next %}
+        <a href="?page={{ product.next_page_number }}&search_query={{ search_query }}">next</a>
+    {% endif %}
+</div>
+    </div>
+    </div>
+
+<style>
+    .pagination a, .current-page{
+        border: 1px solid #979797;
+        padding: 8px;
+        font-size: 14px;
+       
+    }
+    .pagination > *{
+         margin-left:4px;
+    }
+    
+</style>
+            
+    </body>
+</html>
+{% endblock %} 

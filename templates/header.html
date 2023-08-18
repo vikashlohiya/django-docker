@@ -1,0 +1,85 @@
+{% load static %}
+<html>
+    <head>   
+        <title>{% block title %}--{% endblock title %}</title>
+
+
+       
+        <link rel="stylesheet" type="text/css" href="{% static '/demo.css' %}">
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    
+    <body>
+        
+       
+        <script type="text/javascript">
+        console.log("Welcome to Programiz!");
+
+
+Array.prototype.myPop=function(c) {
+           var t=[];
+           console.log(this);
+           for (let i=0; i<this.length;i++){
+               t.push(c(this[i],i,this))
+           }
+           return t;
+        }
+Array.prototype.add=function() {
+            var t=[];
+           for (let i=0; i<this.length;i++){
+               t.push(3*this[i])
+           }
+           return t;
+        }
+        
+        var aa=[1,2,3,4];
+        
+     var yy=   aa.add();
+     var jsfun={
+         
+         uname:"vikash",
+         showName:function(){
+             console.log("name",this)
+         },
+         
+          showNAmeOther:()=>{
+              nameOther:"hi",
+              console.log("name1",this.nameOther)
+         },
+     }
+    // console.log("this",jsfun.showNAmeOther());
+     
+     function addMyNo(a,b){
+       return  new Promise((resolve,reject)=>{
+         if(false){
+            resolve(a+b);
+         }else{
+             reject("Fail")
+         }
+     });
+     }
+   
+    
+     addMyNo(4,5).then((res)=>{
+         console.log(res)
+     }).catch ((err)=>{
+           console.log(err)
+     });
+
+        </script> 
+<div class="nav">
+        <ul class="left">
+          <li><a href="/register">Home</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/product">Add Product</a></li>
+          
+          </ul>
+        <ul class="right">
+            <li><a href="home">Login</a></li>
+            <li><a href="/register">Register</a></li>
+            </ul>
+            </div>
